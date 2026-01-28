@@ -17,31 +17,104 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Photon extends SubsystemBase {
 
   PhotonCamera objCamera = new PhotonCamera("PhotonLime");
+  double dYaw, dPitch, dArea, dSkew;
   
   /** Creates a new Photon. */
   public Photon() {
+    // var result = objCamera.getLatestResult();
+    // boolean bHasTarget = result.hasTargets();
+    // List<PhotonTrackedTarget> targetsList = result.getTargets();
+    // PhotonTrackedTarget target = result.getBestTarget();
+
+    // // Get information from target.
+    // dYaw = target.getYaw();
+    // double dPitch = target.getPitch();
+    // double dArea = target.getArea();
+    // double dSkew = target.getSkew();
+    
+    // int targetID = target.getFiducialId();
+    // double poseAmbiguity = target.getPoseAmbiguity();
+    // Transform3d bestCameraToTarget = target.getBestCameraToTarget();
+    // Transform3d alternateCameraToTarget = target.getAlternateCameraToTarget();
+
+    
+  
+  }
+
+  public double PhotonYaw (){
     var result = objCamera.getLatestResult();
     boolean bHasTarget = result.hasTargets();
     List<PhotonTrackedTarget> targetsList = result.getTargets();
     PhotonTrackedTarget target = result.getBestTarget();
 
     // Get information from target.
-    double dYaw = target.getYaw();
-    double dPitch = target.getPitch();
-    double dArea = target.getArea();
-    double dSkew = target.getSkew();
+    dYaw = target.getYaw();
+    // double dPitch = target.getPitch();
+    // double dArea = target.getArea();
+    // double dSkew = target.getSkew();
     
-    int targetID = target.getFiducialId();
-    double poseAmbiguity = target.getPoseAmbiguity();
-    Transform3d bestCameraToTarget = target.getBestCameraToTarget();
-    Transform3d alternateCameraToTarget = target.getAlternateCameraToTarget();
-
-    
-  
+    // int targetID = target.getFiducialId();
+    // double poseAmbiguity = target.getPoseAmbiguity();
+    // Transform3d bestCameraToTarget = target.getBestCameraToTarget();
+    // Transform3d alternateCameraToTarget = target.getAlternateCameraToTarget();
+    return dYaw;
   }
 
-  public void PhotonTrack (){
+  public double PhotonPitch (){
+    var result = objCamera.getLatestResult();
+    boolean bHasTarget = result.hasTargets();
+    List<PhotonTrackedTarget> targetsList = result.getTargets();
+    PhotonTrackedTarget target = result.getBestTarget();
+
+    // Get information from target.
+    // dYaw = target.getYaw();
+    dPitch = target.getPitch();
+    // double dArea = target.getArea();
+    // double dSkew = target.getSkew();
     
+    // int targetID = target.getFiducialId();
+    // double poseAmbiguity = target.getPoseAmbiguity();
+    // Transform3d bestCameraToTarget = target.getBestCameraToTarget();
+    // Transform3d alternateCameraToTarget = target.getAlternateCameraToTarget();
+    return dPitch;
+  }
+
+  public double PhotonArea (){
+    var result = objCamera.getLatestResult();
+    boolean bHasTarget = result.hasTargets();
+    List<PhotonTrackedTarget> targetsList = result.getTargets();
+    PhotonTrackedTarget target = result.getBestTarget();
+
+    // Get information from target.
+    // dYaw = target.getYaw();
+    // double dPitch = target.getPitch();
+    dArea = target.getArea();
+    // double dSkew = target.getSkew();
+    
+    // int targetID = target.getFiducialId();
+    // double poseAmbiguity = target.getPoseAmbiguity();
+    // Transform3d bestCameraToTarget = target.getBestCameraToTarget();
+    // Transform3d alternateCameraToTarget = target.getAlternateCameraToTarget();
+    return dArea;
+  }
+
+  public double PhotonSkew(){
+    var result = objCamera.getLatestResult();
+    boolean bHasTarget = result.hasTargets();
+    List<PhotonTrackedTarget> targetsList = result.getTargets();
+    PhotonTrackedTarget target = result.getBestTarget();
+
+    // Get information from target.
+    // dYaw = target.getYaw();
+    // double dPitch = target.getPitch();
+    // double dArea = target.getArea();
+    double dSkew = target.getSkew();
+    
+    // int targetID = target.getFiducialId();
+    // double poseAmbiguity = target.getPoseAmbiguity();
+    // Transform3d bestCameraToTarget = target.getBestCameraToTarget();
+    // Transform3d alternateCameraToTarget = target.getAlternateCameraToTarget();
+    return dSkew;
   }
   @Override
   public void periodic() {
