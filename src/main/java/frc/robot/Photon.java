@@ -47,11 +47,16 @@ public class Photon extends SubsystemBase {
     public static double PhotonYaw (){
       var result = objCamera.getLatestResult();
       boolean bHasTarget = result.hasTargets();
+      
       List<PhotonTrackedTarget> targetsList = result.getTargets();
       PhotonTrackedTarget target = result.getBestTarget();
      
       // Get information from target.
-      dYaw = target.getYaw();
+      if (bHasTarget) {
+        dYaw = target.getYaw();
+      }
+      else {dYaw = 7890.0;}
+      
       // double dPitch = target.getPitch();
       // double dArea = target.getArea();
       // double dSkew = target.getSkew();

@@ -30,8 +30,14 @@ public class Photon_Lock extends Command {
 
   double photonAimProportional(){
     double kp = 0.01;
-
-    double dragonRotVel = Photon.PhotonYaw() * kp;
+    double dragonRotVel;
+    
+    if (Photon.PhotonYaw() == 7890.0) {
+      dragonRotVel = 0.0;
+    }
+    else {
+      dragonRotVel = Photon.PhotonYaw() * kp;
+    }
 
     dragonRotVel *=dMaxAngularRate;
 
